@@ -100,6 +100,14 @@ int main(int argc, const char* argv[])
                         break;
                 }
 }
+        if (RECT_X < 0)
+            RECT_X = SCREEN_WIDTH;
+        if (RECT_X > SCREEN_WIDTH)
+            RECT_X = 0;
+        if (RECT_Y < 0)
+            RECT_Y = SCREEN_HEIGHT;
+        if (RECT_Y > SCREEN_HEIGHT)
+            RECT_Y = 0;
         // Check for collision between the movable rectangle and the non-movable cube
         SDL_Rect rect = { RECT_X, RECT_Y, RECT_W, RECT_H };
         bool collision = SDL_HasIntersection(&cubeRect, &rect);
